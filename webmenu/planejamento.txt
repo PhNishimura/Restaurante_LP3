@@ -1,0 +1,20 @@
+- Homepage
+- Criar Login e cria conta (usuário e autenticação)
+    - email
+    - username
+    - senha
+    - Filmes já vistos
+    - Entrar no Perfil
+
+- Filme
+    - thumb
+    - titulo
+    - descrição
+    - categoria
+    -quantidade visualizações
+    - data de criação
+    - episódios
+        - vídeos
+        - título
+
+- barra de pesquisa

@@ -1,0 +1,48 @@
+{% load static %}
+
+<nav class="w-full flex justify-between">
+    <!-- 1ª Divisão: Logo do site -->
+    <div class="w-6/12">
+        <a href="/">
+            <img class="w-2/12" src="{% static 'images/logoMundo.png' %}">
+        </a>
+    </div>
+    <!-- 2ª Divisão: Botão Pesquisar -->
+    <div class="w-6/12 flex flex-nowrap justify-end">
+        {% if user.is_authenticated %}
+            <div class="mr-2">
+                <form method="get" action="{% url 'menu:pesquisaregiao' %}">
+                    <input type="text" class="py-1 px-2 rounded-md text-black" name="query" value="{{ request.GET.query }}" placeholder="Pesquisar...">
+                    <input type="submit" value="">
+                </form>
+            </div>
+        {% endif %}
+        <!-- 3ª Divisão: Botão Sair/Login -->
+        <div class="mr-2">
+            {% if user.is_authenticated %}
+            <a href="{% url 'menu:logout' %}">
+                <button class="bg-gray-200 text-black py-1 px-3 rounded-full" style="background-color: #f4dcc4">
+                    Sair
+                </button>
+            </a>
+            {% else %}
+            <a href="{% url 'menu:login' %}">
+                <button class="bg-yellow-200 text-black py-1 px-3 rounded-full" style="background-color: #f4dcc4">
+                    Login
+                </button>
+            </a>
+            {% endif %}
+        </div>
+        <!-- 4ª Divisão: Botão Editar Perfil -->
+        <div class="mr-2">
+            {% if user.is_authenticated %}
+                <a href="{% url 'menu:editarperfil' user.pk %}">
+                    <button class="bg-gray-600 text-black py-1 px-3 rounded-full" style="background-color: #f4dcc4">
+                        Editar Perfil
+                    </button>
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+</nav>
